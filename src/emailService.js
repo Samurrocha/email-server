@@ -3,16 +3,16 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const sendEmail = async ({ name, email, subject, message }) => {
-    
+
+    console.log(process.env.EMAIL_USER, process.env.EMAIL_PASSWORD)
     const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: process.env.SMTP_PORT,
         auth: {
             user: "samuel.rrocha12@gmail.com",
-            pass: "zwmn bvlx oroc cojc",
+            pass: process.env.EMAIL_PASSWORD,
         },
     });
-    console.log(process.env.EMAIL_USER,process.env.EMAIL_PASSWORD)
 
     try {
         await transporter.sendMail({
