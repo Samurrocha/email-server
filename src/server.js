@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import { sendEmail } from "./emailService.js";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -14,6 +14,8 @@ app.post("/send-email", async (req, res) => {
     res.status(result.success ? 200 : 500).json(result);
 });
 
-app.listen(() => {
-    console.log(`Servidor rodando`);
+const PORT = process.env.SERVER_PORT
+
+app.listen(PORT, '0.0.0.0',() => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
