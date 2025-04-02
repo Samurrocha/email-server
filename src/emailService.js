@@ -4,7 +4,7 @@ dotenv.config();
 
 export const sendEmail = async ({ name, email, subject, message }) => {
 
-    console.log({"email_user":process.env.EMAIL_USER, "email_password":process.env.EMAIL_PASSWORD})
+    console.log({email_user:process.env.EMAIL_USER, email_password:process.env.EMAIL_PASSWORD})
     const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: process.env.SMTP_PORT,
