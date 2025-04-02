@@ -4,6 +4,9 @@ dotenv.config();
 
 export const sendEmail = async ({ name, email, subject, message }) => {
 
+    if (!name || !email || !subject || !message) {
+        return { success: false, message: "Todos os campos são obrigatórios." };
+    }
     const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: process.env.SMTP_PORT,

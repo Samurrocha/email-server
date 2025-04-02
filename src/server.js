@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/send-email", async (req, res) => {
+    
     const result = await sendEmail(req.body);
     res.status(result.success ? 200 : 500).json(result);
 });
