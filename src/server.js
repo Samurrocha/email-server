@@ -14,6 +14,7 @@ app.post("/send-email", async (req, res) => {
     res.status(result.success ? 200 : 500).json(result);
 });
 
-app.listen(() => {
-    console.log(`Servidor rodando`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0',() => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
