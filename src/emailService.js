@@ -8,8 +8,8 @@ export const sendEmail = async ({ name, email, subject, message }) => {
         host: process.env.SMTP_HOST,
         port: process.env.SMTP_PORT,
         auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASSWORD,
+            user: "samuel.rrocha12@gmail.com",
+            pass: "zwmn bvlx oroc cojc",
         },
     });
     console.log(process.env.EMAIL_USER,process.env.EMAIL_PASSWORD)
