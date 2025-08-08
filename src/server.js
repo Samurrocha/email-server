@@ -7,9 +7,19 @@ import sendEmailRoute from './emailRoutes.js';
 dotenv.config();
 const app = express();
 
+const allowedOrigins = ['https://samuellima.dev', 'https://www.samuellima.dev'];
+
 app.use(
     cors({
-      origin: ['https://samuellima.dev', 'https://www.samuellima.dev'], // URLs permitidas
+      origin: (origin, callback) => {
+      // Permitir chamadas sem origem (ex: curl, Postman)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error('Not allowed by CORS'));
+      }
+    },
       methods: ['POST'], // Métodos HTTP permitidos
       allowedHeaders: ['Content-Type'], // Cabeçalhos permitidos
     })
