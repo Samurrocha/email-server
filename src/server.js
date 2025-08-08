@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
     cors({
-      origin: 'https://presentation-page-murex.vercel.app/',
+      origin: ['https://samuellima.dev', 'https://www.samuellima.dev'], // URLs permitidas
       methods: ['POST'], // Métodos HTTP permitidos
       allowedHeaders: ['Content-Type'], // Cabeçalhos permitidos
     })
