@@ -49,4 +49,11 @@ router.post(
   }
 );
 
+router.get('/dev', (req, res) => {
+  res.json({
+    message:
+      'Obrigado! Sua mensagem foi recebida.',
+  });
+})
+
 export default router;
