@@ -7,7 +7,7 @@ import sendEmailRoute from './emailRoutes.js';
 dotenv.config();
 const app = express();
 
-const allowedOrigins = ['https://samuellima.dev', 'https://portfolio-git-dev-samuels-projects-f1a2ed38.vercel.app'];
+const allowedOrigins = ['https://www.samuellima.dev','https://samuellima.dev', 'https://portfolio-git-dev-samuels-projects-f1a2ed38.vercel.app'];
 
 app.use(
   cors({
@@ -34,6 +34,6 @@ app.use((err, req, res, next) => {
 });
 
 const SERVER_PORT = process.env.SERVER_PORT || 3000;
-app.listen(SERVER_PORT, () => {
+app.listen(SERVER_PORT, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${SERVER_PORT}`);
 });
